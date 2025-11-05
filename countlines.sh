@@ -1,7 +1,9 @@
 #!/bin/bash
 
-a=$( basename "$1" );
-b=$( wc -l < $1);
+for i in $@; 
+do
+a=$( basename "$i" );
+b=$( wc -l < $i);
 
 echo $a
 if [[ "$b" -eq 0 ]];
@@ -10,5 +12,6 @@ elif [[ "$b" -eq 1 ]];
 then echo "has one line";
 elif [[ "$b" -gt 1 ]];
 then echo "has more than one line";
-fi
+fi;
+done
 
